@@ -46,9 +46,9 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
-Plugin 'tomasr/molokai'
+Plugin 'zhlsky/vim-settings'
 Plugin 'tpope/vim-commentary'
-Plugin 'kana/vim-textobj-entire'
+"Plugin 'kana/vim-textobj-entire'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
