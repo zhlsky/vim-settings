@@ -46,9 +46,11 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
-Plugin 'zhlsky/vim-settings'
+"Plugin 'tomasr/molokai'
+Plugin 'zhlsky/vim-colors'
 Plugin 'tpope/vim-commentary'
 "Plugin 'kana/vim-textobj-entire'
+Plugin 'vim-scripts/taglist.vim'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -109,5 +111,14 @@ set cursorline " 设置光标所在行高亮
 
 let g:molokai_original = 1
 let g:rehash256 = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"
+"                       Taglist.vim
+"
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let Tlist_Ctags_Cmd="/usr/bin/ctags" "设置ctags命令执行路径
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
