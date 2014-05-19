@@ -5,6 +5,7 @@
 "
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""             
+set nocompatible "不要使用vi的键盘模式，而是vim自己的
 filetype on   " 侦测文件类型
 execute pathogen#infect()
 filetype plugin indent on "为特定文件类型载入相关缩进文件
@@ -18,7 +19,7 @@ filetype plugin indent on "为特定文件类型载入相关缩进文件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "set guifont=PowerlineSymbols\ for\ Powerline
-set nocompatible "不要使用vi的键盘模式，而是vim自己的
+"set nocompatible "不要使用vi的键盘模式，而是vim自己的
 "let g:Powerline_symbols = 'fancy'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -29,7 +30,7 @@ set nocompatible "不要使用vi的键盘模式，而是vim自己的
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
                             
-set nocompatible              " be iMproved, required
+"set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
