@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 "
 "                            Pathogen.vim
@@ -48,11 +48,13 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'tpope/vim-fugitive'
 "Plugin 'tomasr/molokai'
 Plugin 'zhlsky/vim-colors'
+Plugin 'mattn/emmet-vim'
 Plugin 't9md/vim-macvim-transparency'
 Plugin 'tpope/vim-commentary'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'Lokaltog/vim-powerline'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -120,43 +122,44 @@ syntax enable " 语法高亮
 set tabstop=4 " 制表符长度
 set softtabstop=4 " 插入制表符长度
 set shiftwidth=4 " 空白长度
-set cindent "c风格缩进
-set autoindent "自动缩进
-set smartindent "智能缩进,在行和段开始处使用制表符
-set ai! "强制缩进
+set cindent " c风格缩进
+set autoindent  " 自动缩进
+set smartindent " 智能缩进,在行和段开始处使用制表符
+set ai! " 强制缩进
 set nu " 设置行号
-colorscheme molokai "设置颜色主题
+colorscheme molokai " 设置颜色主题
 set t_Co=256 " 终端设定为256色
 set cursorline " 设置光标所在行高亮
-"set noeb  or noerrorbells "关闭错误信息响铃
+"set noeb  or noerrorbells " 关闭错误信息响铃
 set confirm     " 在处理未保存或只读文件的时候，弹出确认
 set noexpandtab " 不要用空格代替制表符
 set history=1000 " 历史记录数
-"set nobackup   "禁止生成临时文件
-"set noswapfile "禁止生成临时文件
-"set ignorecase   "搜索忽略大小写
-set hlsearch  "搜索逐字符高亮
-set gdefault "行内替换
-"set laststatus=2 "总是显示状态行
-set ruler           "在编辑过程中，在右下角显示光标位置的状态行
-"set cmdheight=2  "命令行（在状态行下）的高度，默认为1，这里是2
-set viminfo+=!   "保存全局变量
-set iskeyword+=_,$,@,%,#,-    "带有如下符号的单词不要被换行分割
-"set linespace=0   "字符间插入的像素行数目
-"set wildmenu   "增强模式中的命令行自动完成操作
-"set backspace=2   "使回格键（backspace）正常处理indent, eol, start等
-"set whichwrap+=<,>,h,l     "允许backspace和光标键跨越行边界
+"set nobackup   " 禁止生成临时文件
+"set noswapfile " 禁止生成临时文件
+"set ignorecase   " 搜索忽略大小写
+set hlsearch  " 搜索逐字符高亮
+set gdefault " 行内替换
+"set laststatus=2 " 总是显示状态行
+set ruler           " 在编辑过程中，在右下角显示光标位置的状态行
+"set cmdheight=2  " 命令行（在状态行下）的高度，默认为1，这里是2
+set viminfo+=!   " 保存全局变量
+set iskeyword+=_,$,@,%,#,-    " 带有如下符号的单词不要被换行分割
+"set linespace=0   " 字符间插入的像素行数目
+"set wildmenu   " 增强模式中的命令行自动完成操作
+"set backspace=2   " 使回格键（backspace）正常处理indent, eol, start等
+"set whichwrap+=<,>,h,l     " 允许backspace和光标键跨越行边界
 "可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
-set autochdir               "自动切换当前目录为当前文件所在的目录
-set backupcopy=yes          "设置备份时的行为为覆盖
-"set ignorecase smartcase "搜索时忽略大小写，但在有一个或以上大写字母时仍大小写敏感
+set autochdir               " 自动切换当前目录为当前文件所在的目录
+set backupcopy=yes          " 设置备份时的行为为覆盖
+"set ignorecase smartcase " 搜索时忽略大小写，但在有一个或以上大写字母时仍大小写敏感
 "set nowrapscan  禁止在搜索到文件两端时重新搜索
-set incsearch               "输入搜索内容时就显示搜索结果
+set incsearch               " 输入搜索内容时就显示搜索结果
 set foldmethod=syntax       " 设置语法折叠
 set foldcolumn=0            " 设置折叠区域的宽度
 setlocal foldlevel=1        " 设置折叠层数为
-"set foldclose=all           " 设置为自动关闭折叠
-
+"set foldclose=all            设置为自动关闭折叠
+"highlight RipGroup ctermbg=yellow cterm=none ctermfg=black "颜色的定义
+"match RipGroup /TODO/ “修饰某个关键字
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 "
@@ -175,6 +178,6 @@ let g:rehash256 = 1
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let Tlist_Ctags_Cmd="/usr/bin/ctags" "设置ctags命令执行路径
+let Tlist_Ctags_Cmd="/usr/bin/ctags" " 设置ctags命令执行路径
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
