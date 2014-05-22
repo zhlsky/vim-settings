@@ -56,6 +56,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'Lokaltog/vim-powerline'
+"Plugin 'vim-scripts/Conque-Shell'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -66,6 +67,7 @@ Plugin 'Lokaltog/vim-powerline'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
+Plugin 'Conque-Shell'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on   "载入文件类型插件(required)
@@ -161,6 +163,7 @@ setlocal foldlevel=1        " 设置折叠层数为
 "set foldclose=all            设置为自动关闭折叠
 "highlight RipGroup ctermbg=yellow cterm=none ctermfg=black "颜色的定义
 "match RipGroup /TODO/ “修饰某个关键字
+set wildmode=list,full "命令补全模式设定
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 "
@@ -179,6 +182,63 @@ let g:rehash256 = 1
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let Tlist_Ctags_Cmd="/usr/bin/ctags" " 设置ctags命令执行路径
+let Tlist_Ctags_Cmd="/usr/local/bin/ctags" " 设置ctags命令执行路径
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"
+"                      Conque-shell.vim
+"
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"== USAGE ==
+"
+"Type :ConqueTerm <command> to run your command in vim, for example:
+"
+":ConqueTerm bash
+":ConqueTerm mysql -h localhost -u joe -p sock_collection
+":ConqueTerm Powershell.exe
+":ConqueTerm C:\Python27\python.exe
+"
+"To open ConqueTerm in a new horizontal or vertical buffer use:
+"
+":ConqueTermSplit <command>
+":ConqueTermVSplit <command>
+":ConqueTermTab <command>
+"
+"All text typed in insert mode will be sent to your shell. Use the <F9> key to send a visual selection from any buffer to the shell.
+"
+"For more help type :help ConqueTerm
+let g:ConqueTerm_PyExe = "/usr/bin/python"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"
+"                      Emmet.vim
+"
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+                      
+"使用命令 <C-y>,为执行命令
+"html:5  -> 执行html代码片段
+"p.foo   -> <p class="foo"></p>
+"p#foo   -> <p id="foo"></p>
+"h1{foo} -> <h1>foo</h1>
+"a[href=#]  -> <a href=#></a>
+">：子元素符号，表示嵌套的元素
+"+：同级标签符号
+"^：可以使该符号前的标签提升一行 
+"() -> <div></div>
+"ul>li*3 -> *3表示有三个li标签
+"ul>li.item$*3 -> $表示该处数字从0递增到3
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+
+"let g:user_emmet_mode='n'    "only enable normal mode functions.
+"let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+let g:user_emmet_mode='a'    "enable all function in all mode.
+let g:user_emmet_install_global = 0 "Enable just for html/css
+autocmd FileType html,css EmmetInstall
+"let g:user_emmet_leader_key='<C-Z>' "Redefine trigger key
+"
