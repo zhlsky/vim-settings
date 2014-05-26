@@ -56,6 +56,8 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'cespare/vjde'
+"Plugin 'vim-scripts/javacomplete'
 "Plugin 'vim-scripts/Conque-Shell'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -117,7 +119,9 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set mouse=a " 允许鼠标操作
-set encoding=utf-8 "编码
+set t_Co=256 " 终端设定为256色
+set encoding=utf-8 " 编码
+set guifont=Monaco:h12 " 设置字体和大小
 set helplang=cn " 帮助文档语言设定
 filetype on " 自动判断文件类型
 syntax on " 使用自定义语法
@@ -125,13 +129,13 @@ syntax enable " 语法高亮
 set tabstop=4 " 制表符长度
 set softtabstop=4 " 插入制表符长度
 set shiftwidth=4 " 空白长度
+set expandtab "用空格代替tab
 set cindent " c风格缩进
 set autoindent  " 自动缩进
 set smartindent " 智能缩进,在行和段开始处使用制表符
 set ai! " 强制缩进
 set nu " 设置行号
 colorscheme molokai " 设置颜色主题
-set t_Co=256 " 终端设定为256色
 set cursorline " 设置光标所在行高亮
 "set noeb  or noerrorbells " 关闭错误信息响铃
 set confirm     " 在处理未保存或只读文件的时候，弹出确认
@@ -233,12 +237,25 @@ let g:ConqueTerm_PyExe = "/usr/bin/python"
 "() -> <div></div>
 "ul>li*3 -> *3表示有三个li标签
 "ul>li.item$*3 -> $表示该处数字从0递增到3
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "let g:user_emmet_mode='n'    "only enable normal mode functions.
 "let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_mode='a'    "enable all function in all mode.
-let g:user_emmet_install_global = 0 "Enable just for html/css
-autocmd FileType html,css EmmetInstall
+"let g:user_emmet_install_global = 0 "Enable just for html/css
+"autocmd FileType html,css EmmetInstall
 "let g:user_emmet_leader_key='<C-Z>' "Redefine trigger key
 "
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"
+"                         Javacomplete
+"
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+setlocal omnifunc=javacomplete#Complete
+"autocmd Filetype java set omnifunc=javacomplete#Complete " 自动补全
+"autocmd Filetype java set completefunc=javacomplete#CompleteParamsInf  " 参数提示
+map <F5>:!clear&&javac %&&java %:r<CR>
