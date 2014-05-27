@@ -41,7 +41,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
+Plugin 'asins/vimcdoc'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -56,7 +56,8 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'cespare/vjde'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'cespare/vjde'
 "Plugin 'vim-scripts/javacomplete'
 "Plugin 'vim-scripts/Conque-Shell'
 " Git plugin not hosted on GitHub
@@ -122,7 +123,6 @@ set mouse=a " 允许鼠标操作
 set t_Co=256 " 终端设定为256色
 set encoding=utf-8 " 编码
 set guifont=Monaco:h12 " 设置字体和大小
-set helplang=cn " 帮助文档语言设定
 filetype on " 自动判断文件类型
 syntax on " 使用自定义语法
 syntax enable " 语法高亮
@@ -135,6 +135,7 @@ set autoindent  " 自动缩进
 set smartindent " 智能缩进,在行和段开始处使用制表符
 set ai! " 强制缩进
 set nu " 设置行号
+set hidden " 设置隐藏buffer自动保
 colorscheme molokai " 设置颜色主题
 set cursorline " 设置光标所在行高亮
 "set noeb  or noerrorbells " 关闭错误信息响铃
@@ -255,7 +256,29 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-setlocal omnifunc=javacomplete#Complete
+"setlocal omnifunc=javacomplete#Complete
 "autocmd Filetype java set omnifunc=javacomplete#Complete " 自动补全
 "autocmd Filetype java set completefunc=javacomplete#CompleteParamsInf  " 参数提示
-map <F5>:!clear&&javac %&&java %:r<CR>
+"map <F5>:!clear&&javac %&&java %:r<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"
+"                             vimcdoc
+"
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" 设定doc文档目录
+let helptags=$VIM."/vimfiles/doc"
+set helplang=cn
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"
+"                             NERDTree.vim
+"
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nmap tre :NERDTree<CR>
