@@ -57,8 +57,11 @@ Plugin 'kana/vim-textobj-entire'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'cespare/vjde'
-"Plugin 'vim-scripts/javacomplete'
+Plugin 'vim-scripts/winmanager'
+Plugin 'vim-scripts/JavaRun'
+"Plugin 'corntrace/vjde'
+Plugin 'vim-scripts/javacomplete'
+Plugin 'vim-scripts/JavaBrowser'
 "Plugin 'vim-scripts/Conque-Shell'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -70,7 +73,7 @@ Plugin 'scrooloose/nerdtree'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-Plugin 'Conque-Shell'
+"Plugin 'Conque-Shell'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on   "载入文件类型插件(required)
@@ -162,9 +165,9 @@ set backupcopy=yes          " 设置备份时的行为为覆盖
 "set ignorecase smartcase " 搜索时忽略大小写，但在有一个或以上大写字母时仍大小写敏感
 "set nowrapscan  禁止在搜索到文件两端时重新搜索
 set incsearch               " 输入搜索内容时就显示搜索结果
-set foldmethod=syntax       " 设置语法折叠
-set foldcolumn=0            " 设置折叠区域的宽度
-setlocal foldlevel=1        " 设置折叠层数为
+"set foldmethod=syntax       " 设置语法折叠
+"set foldcolumn=0            " 设置折叠区域的宽度
+"setlocal foldlevel=1        " 设置折叠层数为
 "set foldclose=all            设置为自动关闭折叠
 "highlight RipGroup ctermbg=yellow cterm=none ctermfg=black "颜色的定义
 "match RipGroup /TODO/ “修饰某个关键字
@@ -259,7 +262,45 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 "setlocal omnifunc=javacomplete#Complete
 "autocmd Filetype java set omnifunc=javacomplete#Complete " 自动补全
 "autocmd Filetype java set completefunc=javacomplete#CompleteParamsInf  " 参数提示
-"map <F5>:!clear&&javac %&&java %:r<CR>
+"【重要】需要编译Reflection.java并把编译后的文件加入CLASSPATH
+map <F5>:!clear&&javac %&&java %:r<CR>
+setlocal omnifunc=javacomplete#Complete
+autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType java set completefunc=javacomplete#CompleteParamsInf
+" 这两句的意思 是说按下Ctrl+X 后再按下Ctrl+U 才会触发提示功能如 调入System.
+" 会出现一个列表框列出System 类中的成员
+" 自动补全
+inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P> 
+" 参数提示
+inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
+" 这样每敲入一个大写字母,会进行补全提示,当然这个只能补全当编辑文件
+" 中出现的同名短语
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  A  A<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  B  B<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  C  C<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  D  D<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  E  E<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  F  F<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  G  G<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  H  H<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  I  I<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  J  J<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  K  K<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  L  L<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  M  M<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  N  N<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  O  O<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  P  P<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  Q  Q<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  R  R<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  S  S<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  T  T<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  U  U<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  V  V<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  W  W<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  X  X<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  Y  Y<C-N><C-P>
+autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  Z  Z<C-N><C-P>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -280,5 +321,42 @@ set helplang=cn
 "
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"o 打开关闭文件或者目录，如果是文件的话，光标出现在打开的文件中
+"go 效果同上，不过光标保持在文件目录里，类似预览文件内容的功能
+"i和s可以水平分割或纵向分割窗口打开文件，前面加g类似go的功能
+"t 在标签页中打开
+"T 在后台标签页中打开
+"p 到上层目录
+"P 到根目录
 nmap tre :NERDTree<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"
+"                            JavaBrowser.vim
+"
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap jtre :JavaBrowser<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"
+"                            Winmanager.vim
+"
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"【重要】 需要修改ToggleWindowsManage
+let g:NERDTree_title="[NERDTree]"  
+let g:winManagerWindowLayout="NERDTree|TagList"  
+  
+function! NERDTree_Start()  
+	exec 'NERDTree'  
+endfunction  
+	  
+function! NERDTree_IsValid()  
+	return 1  
+endfunction  
+		  
+cmap wm :WMToggle<CR>  
+cmap qa :only<CR>:q<CR>
