@@ -62,6 +62,7 @@ Plugin 'vim-scripts/JavaRun'
 "Plugin 'corntrace/vjde'
 Plugin 'vim-scripts/javacomplete'
 Plugin 'vim-scripts/JavaBrowser'
+Plugin 'pangloss/vim-javascript'
 "Plugin 'vim-scripts/Conque-Shell'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
