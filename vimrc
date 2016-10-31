@@ -69,6 +69,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-scripts/VimClojure'
 Plugin 'Shougo/vimshell.vim'
+Plugin 'tpope/vim-rails'
 "Plugin 'vim-scripts/Conque-Shell'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
